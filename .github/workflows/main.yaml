@@ -1,0 +1,36 @@
+name: Angular CI/CD Pipeline
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+
+jobs:
+  build-and-test:
+    runs-on: 'ubuntu-latest'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup node js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Test project
+        run: npm test -- --watch=false
+
+      - name: Build project
+        run: npm run build
+
+      - name: Create dist file for testing
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'Devops_test'
+          path: dist/

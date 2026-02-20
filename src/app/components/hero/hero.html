@@ -1,0 +1,42 @@
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="hero__container">
+    <!-- Avatar -->
+    <div class="hero__avatar" aria-hidden="true">
+      <span class="hero__avatar-initials">JD</span>
+    </div>
+
+    <!-- Text Content -->
+    <div class="hero__content">
+      <p class="hero__greeting">Hello, I'm</p>
+
+      <h1 id="hero-heading" class="hero__name">John Doe</h1>
+
+      <p class="hero__title" aria-live="polite" aria-atomic="true">
+        <span class="hero__title-text">{{ displayedTitle() }}</span>
+        <span
+          class="hero__cursor"
+          [style.opacity]="cursorVisible() ? '1' : '0'"
+          aria-hidden="true"
+        >|</span>
+      </p>
+
+      <p class="hero__tagline">
+        Building performant, accessible, and beautiful web experiences
+        with modern Angular and TypeScript.
+      </p>
+
+      <div class="hero__actions">
+        <a href="#projects" class="hero__btn hero__btn--primary">View Projects</a>
+        <a href="#contact" class="hero__btn hero__btn--secondary">Contact Me</a>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <span class="hero__scroll-line"></span>
+        <span class="hero__scroll-label">Scroll</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__bg-shape hero__bg-shape--1" aria-hidden="true"></div>
+  <div class="hero__bg-shape hero__bg-shape--2" aria-hidden="true"></div>
+</section>

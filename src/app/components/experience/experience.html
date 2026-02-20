@@ -1,0 +1,38 @@
+<section
+  id="experience"
+  class="section section--alt experience"
+  aria-labelledby="experience-heading"
+>
+  <div class="section__container">
+    <h2 id="experience-heading" class="section__heading">Experience</h2>
+    <p class="section__subheading">My professional journey building products at scale.</p>
+
+    <ol class="experience__timeline" aria-label="Work experience timeline">
+      @for (entry of entries; track entry.id) {
+        <li class="experience__item" [class.experience__item--current]="entry.isCurrent">
+          <div class="experience__marker" aria-hidden="true">
+            <span class="experience__dot"></span>
+          </div>
+
+          <article class="experience__content" [attr.aria-labelledby]="'exp-role-' + entry.id">
+            <div class="experience__meta">
+              <time class="experience__year">{{ entry.year }}</time>
+              @if (entry.isCurrent) {
+                <span class="experience__badge" aria-label="Current position">Current</span>
+              }
+            </div>
+
+            <h3 [id]="'exp-role-' + entry.id" class="experience__role">{{ entry.role }}</h3>
+            <p class="experience__company">{{ entry.company }}</p>
+
+            <ul class="experience__bullets" aria-label="Key achievements">
+              @for (bullet of entry.bullets; track bullet) {
+                <li class="experience__bullet">{{ bullet }}</li>
+              }
+            </ul>
+          </article>
+        </li>
+      }
+    </ol>
+  </div>
+</section>

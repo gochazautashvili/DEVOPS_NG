@@ -1,0 +1,119 @@
+:host {
+  display: block;
+}
+
+.experience__timeline {
+  list-style: none;
+  position: relative;
+  padding-left: var(--space-10);
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    top: 0.75rem;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--timeline-line-color);
+  }
+}
+
+.experience__item {
+  position: relative;
+  padding-bottom: var(--space-12);
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.experience__marker {
+  position: absolute;
+  left: calc(-1 * var(--space-10));
+  top: 0.75rem;
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.experience__dot {
+  width: 1rem;
+  height: 1rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg);
+  border: 3px solid var(--timeline-dot-color);
+  transition: background-color var(--transition-fast);
+
+  .experience__item--current & {
+    background-color: var(--timeline-dot-color);
+  }
+}
+
+.experience__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.experience__year {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-accent);
+  letter-spacing: 0.05em;
+}
+
+.experience__badge {
+  display: inline-block;
+  padding: 2px var(--space-3);
+  background-color: var(--color-accent);
+  color: #fff;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.experience__role {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: var(--space-1);
+}
+
+.experience__company {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+  font-weight: 500;
+  margin-bottom: var(--space-4);
+}
+
+.experience__bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.experience__bullet {
+  position: relative;
+  padding-left: var(--space-4);
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  line-height: 1.7;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-accent);
+  }
+}

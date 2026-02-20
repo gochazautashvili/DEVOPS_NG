@@ -1,0 +1,203 @@
+:host {
+  display: block;
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: var(--navbar-height);
+  background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-accent-light) 100%);
+}
+
+.hero__container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--space-6);
+  padding-block: var(--space-16);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-6);
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.hero__avatar {
+  width: 8rem;
+  height: 8rem;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-navy) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+  animation: avatarPulse 3s ease-in-out infinite;
+}
+
+.hero__avatar-initials {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.05em;
+}
+
+@keyframes avatarPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(37 99 235 / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 16px rgb(37 99 235 / 0);
+  }
+}
+
+.hero__greeting {
+  font-size: var(--font-size-sm);
+  color: var(--color-accent);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.hero__name {
+  font-family: var(--font-heading);
+  font-size: clamp(var(--font-size-4xl), 7vw, var(--font-size-6xl));
+  font-weight: 800;
+  color: var(--color-navy);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.hero__title {
+  font-size: clamp(var(--font-size-xl), 3.5vw, var(--font-size-3xl));
+  color: var(--color-accent);
+  font-weight: 600;
+  min-height: 1.4em;
+  font-family: var(--font-heading);
+}
+
+.hero__cursor {
+  transition: opacity 50ms;
+  font-weight: 300;
+}
+
+.hero__tagline {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+  max-width: 50ch;
+  line-height: 1.7;
+}
+
+.hero__actions {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: var(--space-4);
+}
+
+.hero__btn {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-3) var(--space-8);
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: var(--font-size-base);
+  text-decoration: none;
+  transition:
+    background-color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  &--primary {
+    background-color: var(--color-accent);
+    color: #fff;
+
+    &:hover {
+      background-color: var(--color-accent-hover);
+    }
+  }
+
+  &--secondary {
+    background-color: transparent;
+    color: var(--color-accent);
+    border: 2px solid var(--color-accent);
+
+    &:hover {
+      background-color: var(--color-accent-light);
+    }
+  }
+}
+
+.hero__scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-8);
+  animation: bounceDown 2s ease-in-out infinite;
+}
+
+.hero__scroll-line {
+  display: block;
+  width: 1px;
+  height: 3rem;
+  background: linear-gradient(to bottom, var(--color-accent), transparent);
+}
+
+.hero__scroll-label {
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+@keyframes bounceDown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.hero__bg-shape {
+  position: absolute;
+  border-radius: var(--radius-full);
+  pointer-events: none;
+
+  &--1 {
+    width: 40rem;
+    height: 40rem;
+    top: -10rem;
+    right: -10rem;
+    background: radial-gradient(circle, rgb(37 99 235 / 0.07) 0%, transparent 70%);
+  }
+
+  &--2 {
+    width: 30rem;
+    height: 30rem;
+    bottom: -8rem;
+    left: -8rem;
+    background: radial-gradient(circle, rgb(30 58 95 / 0.05) 0%, transparent 70%);
+  }
+}
